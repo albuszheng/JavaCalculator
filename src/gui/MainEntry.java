@@ -11,7 +11,7 @@ public class MainEntry {
         WrapperPanel wrapper = new WrapperPanel();
         JPanel buttonSection = new ButtonSection();
         JPanel displaySection = new DisplayPanel();
-        
+
         JFrame frame = new JFrame("Calculator");
 
 

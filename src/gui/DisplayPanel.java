@@ -5,19 +5,32 @@ import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 import java.awt.*;
+import calculating.*;
 
 /**
  * Created by keyangzheng on 9/1/16.
  *
- * Todo display layout & html + css
+ * Todo display error handling
  */
 public class DisplayPanel extends JPanel {
+    /**
+     * display related variable
+     */
     protected String upperSubDisplay = "150 +";
     protected String mainDisplay = "200";
     protected JEditorPane displayPane = new JEditorPane();
     protected String cssRule = "div {margin: 2px;border: thin solid #333;Ω}p, h1 {text-align: right;margin: 0;padding: 5px 10px 0 10px;font: sans-serif;}p {font-size: 1.05em;line-height:.8;font-weight:100;}h1 {font-size: 2.em;line-height: 1.0;}";
-//    protected String sampleHTML = "<p>1504<span>&nbsp;&nbsp;+&nbsp;</span></p>	<h1>100</h1>";
     protected final String defaultHTML = "<div><p> </p><h1>0</h1></div>";
+
+    /**
+     * state transfer indicator
+     */
+    private boolean decimalPointFlag = false;
+    private State state = State.READY_FIRSTNUM;
+    private double firstNum = 0;
+    private double secondNum = 0;
+    private Operator inputtedOperator = Operator._Default;
+
 
     public DisplayPanel(){
         super();
@@ -50,5 +63,7 @@ public class DisplayPanel extends JPanel {
     public void updateDisplay(String newInput){
 
     }
+
+
 
 }
