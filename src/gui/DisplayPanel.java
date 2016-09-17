@@ -10,17 +10,18 @@ import calculating.*;
 /**
  * Created by keyangzheng on 9/1/16.
  *
- * Todo display error handling
+ * Todo display error handling and state transfer
  */
 public class DisplayPanel extends JPanel {
     /**
      * display related variable
      */
-    protected String upperSubDisplay = "150 +";
-    protected String mainDisplay = "200";
+    protected String upperSubDisplay = "";
+    protected String mainDisplay = "0";
     protected JEditorPane displayPane = new JEditorPane();
     protected String cssRule = "div {margin: 2px;border: thin solid #333;Ω}p, h1 {text-align: right;margin: 0;padding: 5px 10px 0 10px;font: sans-serif;}p {font-size: 1.05em;line-height:.8;font-weight:100;}h1 {font-size: 2.em;line-height: 1.0;}";
     protected final String defaultHTML = "<div><p> </p><h1>0</h1></div>";
+    protected String displayHTML = "";
 
     /**
      * state transfer indicator
@@ -35,9 +36,9 @@ public class DisplayPanel extends JPanel {
     public DisplayPanel(){
         super();
 
-        this.setPreferredSize(new Dimension(500, 100));
+        this.setPreferredSize(new Dimension(500, 110));
 
-        displayPane.setPreferredSize(new Dimension(500, 100));
+        displayPane.setPreferredSize(new Dimension(500, 110));
         displayPane.setContentType("text/html");
 
         displayPane.setEditable(false);
@@ -48,7 +49,8 @@ public class DisplayPanel extends JPanel {
 
         Document doc = kit.createDefaultDocument();
         displayPane.setDocument(doc);
-        displayPane.setText(defaultHTML);
+        displayHTML = defaultHTML;
+        displayPane.setText(displayHTML);
 
         this.add(displayPane);
 
@@ -61,9 +63,21 @@ public class DisplayPanel extends JPanel {
     }
 
     public void updateDisplay(String newInput){
-
+        firstNum = firstNum*10 + Double.parseDouble(newInput);
+        if (firstNum - (int)firstNum == 0.0){
+            mainDisplay = Integer.toString((int)firstNum);
+        }else {
+            mainDisplay = Double.toString(firstNum);
+        }
+        displayHTML = "<div><p> </p><h1>"+mainDisplay+"</h1></div>";
+        displayPane.setText(displayHTML);
+        updateUI();
     }
 
 
+    //state change control
+    private void stateCheck(){
+
+    }
 
 }

@@ -13,6 +13,8 @@ public class MainEntry {
         JPanel displaySection = new DisplayPanel();
 
         JFrame frame = new JFrame("Calculator");
+        frame.add(wrapper);
+        frame.setSize(new Dimension(500, 550));
 
 
         frame.setResizable(false);

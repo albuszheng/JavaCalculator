@@ -21,6 +21,9 @@ public class WrapperPanel extends JPanel implements ButtonInputObserver {
         displaySection = new DisplayPanel();
         buttonSection = new ButtonSection();
 
+        this.add(displaySection);
+        this.add(buttonSection);
+
         buttonSection.registerListener(this);
     }
 

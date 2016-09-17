@@ -1,0 +1,8 @@
+#compiled class files
+*.class
+
+#no IDE information
+.idea/
+
+out/
+
