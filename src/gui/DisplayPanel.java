@@ -67,7 +67,7 @@ public class DisplayPanel extends JPanel {
         if (decimalPointFlag) {
 
         } else {
-            if (Pattern.matches(newInput, "[0-9]")){
+            if (Pattern.matches("[0-9]", newInput)){
                 switch (state){
                     case READY_FIRSTNUM: {
                         firstNum = firstNum*10 + Double.parseDouble(newInput);
@@ -129,7 +129,11 @@ public class DisplayPanel extends JPanel {
                     case IN_SECONDNUM:{
                         //normal procedure
                         computedResult = Calculator.operation(firstNum, secondNum, inputtedOperator.toString().charAt(0));
-                        upperSubDisplay = upperSubDisplay + " =";
+                        if (secondNum - (int)secondNum == 0.0){
+                            upperSubDisplay = upperSubDisplay + " " + (int)secondNum + " =";
+                        } else {
+                            upperSubDisplay = upperSubDisplay + " " + secondNum + " =";
+                        }
                         if (computedResult - (int)computedResult == 0.0){
                             mainDisplay = Integer.toString((int)computedResult);
                         }else {
@@ -190,10 +194,11 @@ public class DisplayPanel extends JPanel {
                             }
                         }
                         upperSubDisplay = mainDisplay + " " + newInput;
-                        mainDisplay = "";
+                        mainDisplay = "&nbsp;";
                         displayHTML = "<div><p>"+ upperSubDisplay +"</p><h1>"+mainDisplay+"</h1></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
+                        state = State.READY_SECONDNUM;
                         break;
                     }
                     case READY_FIRSTNUM:{
