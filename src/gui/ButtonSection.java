@@ -29,8 +29,8 @@ public class ButtonSection extends JPanel implements ActionListener{
     //operation button group
     protected JButton optBtnPlus = new JButton("+");
     protected JButton optBtnMinus = new JButton("-");
-    protected JButton optBtnMultiply = new JButton("*");
-    protected JButton optBtnDivision = new JButton("/");
+    protected JButton optBtnMultiply = new JButton("×");
+    protected JButton optBtnDivision = new JButton("÷");
     protected JButton optBtnDecimalPoint = new JButton(".");
     protected JButton optBtnEqual = new JButton("=");
 

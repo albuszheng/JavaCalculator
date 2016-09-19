@@ -15,6 +15,9 @@ import calculating.*;
 public class DisplayPanel extends JPanel {
     /**
      * display related variable
+     *
+     * times: &times; &#215;
+     * division: &divide; &#247;
      */
     protected String upperSubDisplay = "";
     protected String mainDisplay = "0";
@@ -31,6 +34,7 @@ public class DisplayPanel extends JPanel {
     private double firstNum = 0;
     private double secondNum = 0;
     private Operator inputtedOperator = Operator._Default;
+    private double computedResult = 0;
 
 
     public DisplayPanel(){
@@ -78,6 +82,21 @@ public class DisplayPanel extends JPanel {
     //state change control
     private void stateCheck(){
 
+    }
+
+    private void reset() {
+        firstNum = 0;
+        inputtedOperator = Operator._Default;
+        secondNum = 0;
+        computedResult = 0;
+        state = State.READY_FIRSTNUM;
+
+        mainDisplay = "0";
+        upperSubDisplay = "";
+    }
+
+    private boolean isDigit(String s){
+        return false;
     }
 
 }
