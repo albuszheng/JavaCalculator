@@ -5,6 +5,8 @@ import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.StyleSheet;
 import java.awt.*;
+import java.util.regex.Pattern;
+
 import calculating.*;
 
 /**
@@ -57,32 +59,182 @@ public class DisplayPanel extends JPanel {
         displayPane.setText(displayHTML);
 
         this.add(displayPane);
+        state = State.READY_FIRSTNUM;
 
-    }
-
-    public void updateText(String mainDisplay, String upperSubDisplay){
-
-
-        updateUI();
     }
 
     public void updateDisplay(String newInput){
-        firstNum = firstNum*10 + Double.parseDouble(newInput);
-        if (firstNum - (int)firstNum == 0.0){
-            mainDisplay = Integer.toString((int)firstNum);
-        }else {
-            mainDisplay = Double.toString(firstNum);
+        if (decimalPointFlag) {
+
+        } else {
+            if (Pattern.matches(newInput, "[0-9]")){
+                switch (state){
+                    case READY_FIRSTNUM: {
+                        firstNum = firstNum*10 + Double.parseDouble(newInput);
+                        if (firstNum - (int)firstNum == 0.0){
+                            mainDisplay = Integer.toString((int)firstNum);
+                        }else {
+                            mainDisplay = Double.toString(firstNum);
+                        }
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h1>"+mainDisplay+"</h1></div>";
+                        displayPane.setText(displayHTML);
+                        state = State.IN_FIRSTNUM;
+                        updateUI();
+                        break;
+                    }
+                    case READY_SECONDNUM: {
+                        secondNum = secondNum*10 + Double.parseDouble(newInput);
+                        if (secondNum - (int)secondNum == 0.0){
+                            mainDisplay = Integer.toString((int)secondNum);
+                        }else {
+                            mainDisplay = Double.toString(secondNum);
+                        }
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h1>"+mainDisplay+"</h1></div>";
+                        displayPane.setText(displayHTML);
+                        state = State.IN_SECONDNUM;
+                        updateUI();
+                        break;
+                    }
+                    case IN_FIRSTNUM: {
+                        firstNum = firstNum*10 + Double.parseDouble(newInput);
+                        if (firstNum - (int)firstNum == 0.0){
+                            mainDisplay = Integer.toString((int)firstNum);
+                        }else {
+                            mainDisplay = Double.toString(firstNum);
+                        }
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h1>"+mainDisplay+"</h1></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                    case IN_SECONDNUM: {
+                        secondNum = secondNum*10 + Double.parseDouble(newInput);
+                        if (secondNum - (int)secondNum == 0.0){
+                            mainDisplay = Integer.toString((int)secondNum);
+                        }else {
+                            mainDisplay = Double.toString(secondNum);
+                        }
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h1>"+mainDisplay+"</h1></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                }
+            } else if (newInput.equals(".")){
+                //input as decimal point
+                decimalPointFlag = true;
+            } else if (newInput.equals("=")){
+                //input as equal
+                switch (state){
+                    case IN_SECONDNUM:{
+                        //normal procedure
+                        computedResult = Calculator.operation(firstNum, secondNum, inputtedOperator.toString().charAt(0));
+                        upperSubDisplay = upperSubDisplay + " =";
+                        if (computedResult - (int)computedResult == 0.0){
+                            mainDisplay = Integer.toString((int)computedResult);
+                        }else {
+                            mainDisplay = Double.toString(computedResult);
+                        }
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h1>"+mainDisplay+"</h1></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        reset();
+                        break;
+                    }
+                    case IN_FIRSTNUM:{
+                        //error: Equal without OP
+                        mainDisplay = "We don\'t Have a Operator!";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                    case READY_FIRSTNUM:{
+                        //error: Leading with Equal
+                        mainDisplay = "Don\'t Start with = !";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                    case READY_SECONDNUM:{
+                        //error: OP -> Equal
+                        mainDisplay = "Where is the 2nd Num?";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                }
+            } else {
+                // input as operator
+                switch (state){
+                    case IN_FIRSTNUM:{
+                        // normal procedure
+                        switch (newInput.charAt(0)){
+                            case '+': {
+                                inputtedOperator = Operator.PLUS;
+                                break;
+                            }
+                            case '-': {
+                                inputtedOperator = Operator.MINUS;
+                                break;
+                            }
+                            case '×': {
+                                inputtedOperator = Operator.MULTIPLY;
+                                break;
+                            }
+                            case '÷': {
+                                inputtedOperator = Operator.DIVISION;
+                                break;
+                            }
+                        }
+                        upperSubDisplay = mainDisplay + " " + newInput;
+                        mainDisplay = "";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h1>"+mainDisplay+"</h1></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                    case READY_FIRSTNUM:{
+                        //error: Leading with OP
+                        mainDisplay = "Input a num first!";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                    case READY_SECONDNUM:{
+                        //error: OP -> OP
+                        mainDisplay = "Num not Operator Please!";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                    case IN_SECONDNUM:{
+                        //error: Multiple OP
+                        mainDisplay = "Multiple Op not Supported!";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayPane.setText(displayHTML);
+                        updateUI();
+                        break;
+                    }
+                }
+            }//end of operator input
         }
-        displayHTML = "<div><p> </p><h1>"+mainDisplay+"</h1></div>";
-        displayPane.setText(displayHTML);
-        updateUI();
+
+//        firstNum = firstNum*10 + Double.parseDouble(newInput);
+//        if (firstNum - (int)firstNum == 0.0){
+//            mainDisplay = Integer.toString((int)firstNum);
+//        }else {
+//            mainDisplay = Double.toString(firstNum);
+//        }
+//        displayHTML = "<div><p> </p><h1>"+mainDisplay+"</h1></div>";
+//        displayPane.setText(displayHTML);
+//        updateUI();
     }
 
-
-    //state change control
-    private void stateCheck(){
-
-    }
 
     private void reset() {
         firstNum = 0;
@@ -90,13 +242,11 @@ public class DisplayPanel extends JPanel {
         secondNum = 0;
         computedResult = 0;
         state = State.READY_FIRSTNUM;
+        decimalPointFlag = false;
 
         mainDisplay = "0";
         upperSubDisplay = "";
     }
 
-    private boolean isDigit(String s){
-        return false;
-    }
 
 }
