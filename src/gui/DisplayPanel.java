@@ -148,7 +148,7 @@ public class DisplayPanel extends JPanel {
                     case IN_FIRSTNUM:{
                         //error: Equal without OP
                         mainDisplay = "We don\'t Have a Operator!";
-                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:red;\">"+mainDisplay+"</span></h3></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
                         break;
@@ -156,7 +156,7 @@ public class DisplayPanel extends JPanel {
                     case READY_FIRSTNUM:{
                         //error: Leading with Equal
                         mainDisplay = "Don\'t Start with = !";
-                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:red;\">"+mainDisplay+"</span></h3></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
                         break;
@@ -164,7 +164,7 @@ public class DisplayPanel extends JPanel {
                     case READY_SECONDNUM:{
                         //error: OP -> Equal
                         mainDisplay = "Where is the 2nd Num?";
-                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:red;\">"+mainDisplay+"</span></h3></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
                         break;
@@ -204,7 +204,7 @@ public class DisplayPanel extends JPanel {
                     case READY_FIRSTNUM:{
                         //error: Leading with OP
                         mainDisplay = "Input a num first!";
-                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:red;\">"+mainDisplay+"</span></h3></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
                         break;
@@ -212,7 +212,7 @@ public class DisplayPanel extends JPanel {
                     case READY_SECONDNUM:{
                         //error: OP -> OP
                         mainDisplay = "Num not Operator Please!";
-                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:red;\">"+mainDisplay+"</span></h3></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
                         break;
@@ -220,7 +220,7 @@ public class DisplayPanel extends JPanel {
                     case IN_SECONDNUM:{
                         //error: Multiple OP
                         mainDisplay = "Multiple Op not Supported!";
-                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:blue;\">"+mainDisplay+"</span></h3></div>";
+                        displayHTML = "<div><p>"+ upperSubDisplay +"</p><h3><span style=\"color:red;\">"+mainDisplay+"</span></h3></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
                         break;

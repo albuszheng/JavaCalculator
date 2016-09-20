@@ -73,7 +73,7 @@
       <file leaf-file-name="DisplayPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/DisplayPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
+            <state relative-caret-position="1311">
               <caret line="132" column="74" selection-start-line="132" selection-start-column="74" selection-end-line="132" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -749,12 +749,12 @@
       <workItem from="1473453618232" duration="4839000" />
       <workItem from="1473919004813" duration="8631000" />
       <workItem from="1474251767536" duration="10000" />
-      <workItem from="1474252289736" duration="6353000" />
+      <workItem from="1474252289736" duration="6591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34504000" />
+    <option name="totallyTimeSpent" value="34742000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -839,13 +839,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>172</line>
+          <line>168</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>174</line>
+          <line>170</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -1255,7 +1255,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/DisplayPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
+        <state relative-caret-position="1311">
           <caret line="132" column="74" selection-start-line="132" selection-start-column="74" selection-end-line="132" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
