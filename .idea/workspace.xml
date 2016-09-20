@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d62523b5-fb3c-42b0-b624-7399f1c72be4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calculating/State.java" afterPath="$PROJECT_DIR$/src/calculating/State.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/DisplayPanel.java" afterPath="$PROJECT_DIR$/src/gui/DisplayPanel.java" />
     </list>
     <ignored path="Calculator.iws" />
@@ -73,8 +74,8 @@
       <file leaf-file-name="DisplayPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/DisplayPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
-              <caret line="132" column="74" selection-start-line="132" selection-start-column="74" selection-end-line="132" selection-end-column="74" />
+            <state relative-caret-position="399">
+              <caret line="182" column="45" selection-start-line="182" selection-start-column="45" selection-end-line="182" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,8 +86,8 @@
       <file leaf-file-name="State.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/calculating/State.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+            <state relative-caret-position="190">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -749,12 +750,12 @@
       <workItem from="1473453618232" duration="4839000" />
       <workItem from="1473919004813" duration="8631000" />
       <workItem from="1474251767536" duration="10000" />
-      <workItem from="1474252289736" duration="6591000" />
+      <workItem from="1474252289736" duration="9114000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34742000" />
+    <option name="totallyTimeSpent" value="37265000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -803,49 +804,49 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>69</line>
+          <line>89</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>70</line>
+          <line>109</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>122</line>
+          <line>162</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>124</line>
+          <line>186</line>
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>125</line>
+          <line>195</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>127</line>
+          <line>197</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>168</line>
+          <line>238</line>
           <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/gui/DisplayPanel.java</url>
-          <line>170</line>
+          <line>240</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -1227,14 +1228,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/calculating/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/ButtonSection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -1253,10 +1246,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/calculating/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/DisplayPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="132" column="74" selection-start-line="132" selection-start-column="74" selection-end-line="132" selection-end-column="74" />
+        <state relative-caret-position="399">
+          <caret line="182" column="45" selection-start-line="182" selection-start-column="45" selection-end-line="182" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
