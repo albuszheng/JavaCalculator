@@ -117,7 +117,7 @@ public class DisplayPanel extends JPanel {
                     }
                     case IN_FIRSTNUM: {
                         firstNum = firstNum * 10 + Double.parseDouble(newInput);
-                        mainDisplay = doubleFormat.format(secondNum);
+                        mainDisplay = doubleFormat.format(firstNum);
                         displayHTML = "<div><p>" + upperSubDisplay + "</p><h1>" + mainDisplay + "</h1></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
