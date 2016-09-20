@@ -14,7 +14,7 @@ public class MainEntry {
 
         JFrame frame = new JFrame("Calculator");
         frame.add(wrapper);
-        frame.setSize(new Dimension(500, 550));
+        frame.setSize(new Dimension(510, 550));
 
 
         frame.setResizable(false);
