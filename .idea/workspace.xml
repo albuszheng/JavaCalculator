@@ -6,10 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d62523b5-fb3c-42b0-b624-7399f1c72be4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/DisplayPanel.java" afterPath="$PROJECT_DIR$/src/gui/DisplayPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MainEntry.java" afterPath="$PROJECT_DIR$/src/gui/MainEntry.java" />
-    </list>
+    <list default="true" id="d62523b5-fb3c-42b0-b624-7399f1c72be4" name="Default" comment="" />
     <ignored path="Calculator.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -805,12 +802,12 @@
       <workItem from="1473453618232" duration="4839000" />
       <workItem from="1473919004813" duration="8631000" />
       <workItem from="1474251767536" duration="10000" />
-      <workItem from="1474252289736" duration="13095000" />
+      <workItem from="1474252289736" duration="13170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41246000" />
+    <option name="totallyTimeSpent" value="41321000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
