@@ -22,5 +22,5 @@ Illegal input type:
 
 When inputting a number leading with a decimal point, the calculator would see the number as 0.###.
 
-ScreenShot:
-![](https://raw.githubusercontent.com/albuszheng/JavaCalculator/master/screenshot/ScreenShot.png)
+
+![screenshot](https://raw.githubusercontent.com/albuszheng/JavaCalculator/master/screenshot/ScreenShot.png)
