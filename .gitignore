@@ -1,6 +1,8 @@
 #compiled class files
 *.class
 
+*.DS_Store
+
 #no IDE information
 .idea/workspace.xml
 .idea/
