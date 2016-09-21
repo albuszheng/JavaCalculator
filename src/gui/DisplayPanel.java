@@ -31,7 +31,7 @@ public class DisplayPanel extends JPanel {
     protected String cssRule = "div {margin: 2px;border: thin solid #333;}p, h1 {text-align: right;margin: 0;padding: 5px 10px 0 10px;font: sans-serif;}p {font-size: 1.05em;line-height:.8;font-weight:100;}h1 {font-size: 2.em;line-height: 1.0;}";
     protected final String defaultHTML = "<div><p> </p><h1>0</h1></div>";
     protected String displayHTML = "";
-    protected final int MAX_DISPLAY_LENGTH = 12;
+    protected final int MAX_DISPLAY_LENGTH = 14;
 
     /**
      * state transfer indicator
@@ -42,7 +42,8 @@ public class DisplayPanel extends JPanel {
     private double secondNum = 0;
     private Operator inputtedOperator = Operator._Default;
     private double computedResult = 0;
-    private NumberFormat doubleFormat = null;
+    private NumberFormat scientificNotion = null;
+    private DecimalFormat intFormat = null;
 
 
     public DisplayPanel(){
@@ -67,10 +68,11 @@ public class DisplayPanel extends JPanel {
         this.add(displayPane);
         state = READY_FIRSTNUM;
 
-        doubleFormat = NumberFormat.getNumberInstance();
-        doubleFormat.setMaximumFractionDigits(6);
-        doubleFormat.setMaximumIntegerDigits(10);
-
+        scientificNotion = new DecimalFormat("0.#########E0");
+        intFormat = new DecimalFormat();
+        intFormat.setDecimalSeparatorAlwaysShown(false);
+        intFormat.setGroupingUsed(false);
+        intFormat.setMaximumFractionDigits(7);
 
     }
 
@@ -99,7 +101,11 @@ public class DisplayPanel extends JPanel {
                 switch (state) {
                     case READY_FIRSTNUM: {
                         firstNum = firstNum * 10 + Double.parseDouble(newInput);
-                        mainDisplay = doubleFormat.format(firstNum);
+                        if (Double.toString(firstNum).length() <= MAX_DISPLAY_LENGTH) {
+                            mainDisplay = intFormat.format(firstNum);
+                        } else {
+                            mainDisplay = scientificNotion.format(firstNum);
+                        }
                         displayHTML = "<div><p>" + upperSubDisplay + "</p><h1>" + mainDisplay + "</h1></div>";
                         displayPane.setText(displayHTML);
                         state = IN_FIRSTNUM;
@@ -108,7 +114,11 @@ public class DisplayPanel extends JPanel {
                     }
                     case READY_SECONDNUM: {
                         secondNum = secondNum * 10 + Double.parseDouble(newInput);
-                        mainDisplay = doubleFormat.format(secondNum);
+                        if (Double.toString(secondNum).length() <= MAX_DISPLAY_LENGTH) {
+                            mainDisplay = intFormat.format(secondNum);
+                        } else {
+                            mainDisplay = scientificNotion.format(secondNum);
+                        }
                         displayHTML = "<div><p>" + upperSubDisplay + "</p><h1>" + mainDisplay + "</h1></div>";
                         displayPane.setText(displayHTML);
                         state = IN_SECONDNUM;
@@ -117,7 +127,11 @@ public class DisplayPanel extends JPanel {
                     }
                     case IN_FIRSTNUM: {
                         firstNum = firstNum * 10 + Double.parseDouble(newInput);
-                        mainDisplay = doubleFormat.format(firstNum);
+                        if (Double.toString(firstNum).length() <= MAX_DISPLAY_LENGTH) {
+                            mainDisplay = intFormat.format(firstNum);
+                        } else {
+                            mainDisplay = scientificNotion.format(firstNum);
+                        }
                         displayHTML = "<div><p>" + upperSubDisplay + "</p><h1>" + mainDisplay + "</h1></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
@@ -125,7 +139,11 @@ public class DisplayPanel extends JPanel {
                     }
                     case IN_SECONDNUM: {
                         secondNum = secondNum * 10 + Double.parseDouble(newInput);
-                        mainDisplay = doubleFormat.format(secondNum);
+                        if (Double.toString(secondNum).length() <= MAX_DISPLAY_LENGTH) {
+                            mainDisplay = intFormat.format(secondNum);
+                        } else {
+                            mainDisplay = scientificNotion.format(secondNum);
+                        }
                         displayHTML = "<div><p>" + upperSubDisplay + "</p><h1>" + mainDisplay + "</h1></div>";
                         displayPane.setText(displayHTML);
                         updateUI();
@@ -171,9 +189,18 @@ public class DisplayPanel extends JPanel {
             switch (state) {
                 case IN_SECONDNUM: {
                     //normal procedure
-                    computedResult = Calculator.operation(firstNum, secondNum, inputtedOperator.toString().charAt(0));    
-                    upperSubDisplay = upperSubDisplay + " " + doubleFormat.format(secondNum) + " =";
-                    mainDisplay = doubleFormat.format(computedResult);
+                    computedResult = Calculator.operation(firstNum, secondNum, inputtedOperator.toString().charAt(0));
+                    if (Double.toString(secondNum).length() <= MAX_DISPLAY_LENGTH) {
+                        upperSubDisplay = upperSubDisplay + " " + intFormat.format(secondNum) + " =";
+                    } else {
+                        upperSubDisplay = upperSubDisplay + " " + scientificNotion.format(secondNum) + " =";
+                    }
+
+                    if (Double.toString(computedResult).length() <= MAX_DISPLAY_LENGTH) {
+                        mainDisplay = intFormat.format(computedResult);
+                    } else {
+                        mainDisplay = scientificNotion.format(computedResult);
+                    }
                     displayHTML = "<div><p>" + upperSubDisplay + "</p><h1>" + mainDisplay + "</h1></div>";
                     displayPane.setText(displayHTML);
                     updateUI();
